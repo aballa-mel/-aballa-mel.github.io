@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melvin Aballa Ojwok | Research Scientist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --background: #f8f9fa;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            background: var(--background);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Decorative background elements */
+        .background-element {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.05;
+        }
+
+        .bg-circle {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+        }
+
+        .bg-triangle {
+            width: 0;
+            height: 0;
+            border-left: 200px solid transparent;
+            border-right: 200px solid transparent;
+            border-bottom: 346px solid var(--accent);
+            bottom: -150px;
+            left: -100px;
+            transform: rotate(45deg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-container {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            background: linear-gradient(45deg, #3498db, #2c3e50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .status-indicator {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: #2ecc71;
+            border: 2px solid white;
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, #3498db, #ecf0f1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background: var(--secondary);
+            color: white;
+        }
+
+        /* Main content sections */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+            padding: 0 20px;
+            background: var(--background);
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-header::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--secondary), transparent);
+            z-index: 1;
+        }
+
+        .section-content {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+        }
+
+        /* Research Interests */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .research-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .research-card h3 {
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.4rem;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: calc(50% - 40px);
+            padding: 1.8rem;
+            background: var(--light);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: auto;
+        }
+
+        .timeline-content::before {
+            content: "";
+            position: absolute;
+            top: 24px;
+            width: 25px;
+            height: 25px;
+            background: var(--secondary);
+            border-radius: 50%;
+            z-index: 2;
+            border: 3px solid white;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            left: -42px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            right: -42px;
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: scale(1.03);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-list li::before {
+            content: "▹";
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .award-card {
+            background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .award-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .award-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--secondary);
+        }
+
+        .award-year {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1rem;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* Publications */
+        .publication-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 1.8rem;
+            margin-bottom: 1.8rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .publication-card:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transform: translateX(5px);
+        }
+
+        .doi-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .doi-link:hover {
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 4rem 0 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #3498db, #ecf0f1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .copyright {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin: 2rem 0;
+            color: var(--secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+            
+            .timeline-content::before {
+                left: -42px !important;
+                right: auto !important;
+            }
+
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="background-element bg-circle"></div>
+    <div class="background-element bg-triangle"></div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-container">
+                    <div class="profile-pic">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="status-indicator"></div>
+                </div>
+                <h1>OJWOK Melvin Aballa</h1>
+                <p class="tagline">Graduate Researcher in Mathematics & Engineering Mathematics</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>melvinaballa.ojwok@student.univaq.it</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+39 350 112 6735</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-id-card"></i>
+                        <span>ORCID: 0009-0002-8887-3094</span>
+                    </div>
+                </div>
+                
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-researchgate"></i></a>
+                    <a href="#"><i class="fab fa-google"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <div class="nav-container">
+        <nav>
+            <ul>
+                <li><a href="#research" class="active">Research</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#awards">Awards</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Research Interests Section -->
+    <section class="section" id="research">
+        <div class="container">
+            <div class="section-header">
+                <h2>Research Interests</h2>
+            </div>
+            <div class="section-content">
+                <div class="research-grid">
+                    <div class="research-card">
+                        <h3><i class="fas fa-water"></i> Fluid Dynamics</h3>
+                        <p>Specializing in computational fluid dynamics with a focus on nanofluid behavior in various conditions and environments.</p>
+                    </div>
+                    <div class="research-card">
+                        <h3><i class="fas fa-calculator"></i> Applied Partial Differential Equations</h3>
+                        <p>Applying PDEs to model complex physical systems, particularly in fluid mechanics and heat transfer scenarios.</p>
+                    </div>
+                    <div class="research-card">
+                        <h3><i class="fas fa-laptop-code"></i> Numerical Methods</h3>
+                        <p>Developing and implementing numerical techniques including FDM and FVM for solving complex mathematical models in engineering applications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education">
+        <div class="container">
+            <div class="section-header">
+                <h2>Education</h2>
+            </div>
+            <div class="section-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Sept 2024 – Current</div>
+                            <h3>Double MSc Degree</h3>
+                            <p><strong>MSc Mathematics</strong> – Karlstad University, Sweden</p>
+                            <p><strong>MSc Engineering Mathematics</strong> – University of L'Aquila, Italy</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Oct 2022 – Aug 2024</div>
+                            <h3>Master of Science in Mathematics</h3>
+                            <p>University of Dodoma, Tanzania</p>
+                            <p><strong>Thesis:</strong> MHD Flow of Brinkman-Type Molybdenum Disulfide Nanofluid in a Rotating disk</p>
+                            <p><strong>Supervisor:</strong> Dr. Paul M. Matao</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Aug 2017 – Dec 2020</div>
+                            <h3>Bachelor of Science with Education</h3>
+                            <p>Makerere University, Uganda</p>
+                            <p><strong>Major:</strong> Mathematics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="section" id="publications">
+        <div class="container">
+            <div class="section-header">
+                <h2>Publications</h2>
+            </div>
+            <div class="section-content">
+                <div class="publication-card">
+                    <h3>Mass Separation and Flux on the Radiative Oscillatory Unsteady Flow of Magnetized Nanofluid via Vertically Oriented Plate Submerged in Porous Media: FDM Analysis</h3>
+                    <div class="timeline-date">2025</div>
+                    <a href="https://doi.org/10.1142/S1793292025500821" class="doi-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> DOI: 10.1142/S1793292025500821
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Experience Section -->
+    <section class="section" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2>Research Experience</h2>
+            </div>
+            <div class="section-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Sept 2025 – Present</div>
+                            <h3>Graduate Researcher</h3>
+                            <p>Karlstad University, Sweden</p>
+                            <ul>
+                                <li>Research focus: Homogenization, Simulation, and Analysis of Multiscale Problems</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Oct 2023 – Aug 2024</div>
+                            <h3>Graduate Researcher</h3>
+                            <p>University of Dodoma, Tanzania</p>
+                            <ul>
+                                <li>Developed FDM-based models for radiative MHD nanofluid flow in porous media</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Skills</h2>
+            </div>
+            <div class="section-content">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Programming</h3>
+                        <ul class="skill-list">
+                            <li>MATLAB</li>
+                            <li>Parallel Computing (HPC)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-calculator"></i> Mathematical Modeling</h3>
+                        <ul class="skill-list">
+                            <li>Finite Volume Method (FVM)</li>
+                            <li>Finite Difference Method (FDM)</li>
+                            <li>CFD tools</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-language"></i> Languages</h3>
+                        <ul class="skill-list">
+                            <li>English (C1 Proficient)</li>
+                            <li>Italian (A2)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grants & Awards Section -->
+    <section class="section" id="awards">
+        <div class="container">
+            <div class="section-header">
+                <h2>Grants & Awards</h2>
+            </div>
+            <div class="section-content">
+                <div class="awards-grid">
+                    <div class="award-card">
+                        <div class="award-year">2025</div>
+                        <h3>Erasmus Mobility Grant</h3>
+                        <p>Funded MSc mobility studies at Karlstad University</p>
+                    </div>
+                    <div class="award-card">
+                        <div class="award-year">2024</div>
+                        <h3>RealMaths Consortium Scholarship</h3>
+                        <p>Partially funded MSc studies at University of L'Aquila</p>
+                    </div>
+                    <div class="award-card">
+                        <div class="award-year">2022</div>
+                        <h3>IUCEA Scholarship</h3>
+                        <p>Fully funded MSc studies at University of Dodoma</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3 class="footer-title">OJWOK Melvin Aballa</h3>
+                <p>Graduate Researcher in Mathematics & Engineering Mathematics</p>
+                
+                <div class="contact-info" style="justify-content: center; margin: 2rem 0;">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>melvinaballa.ojwok@student.univaq.it</span>
+                    </div>
+                </div>
+                
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-researchgate"></i></a>
+                    <a href="#"><i class="fab fa-google"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+                
+                <div class="signature">Ojwok Melvin Aballa</div>
+                
+                <div class="copyright">
+                    &copy; 2025 Melvin Aballa Ojwok. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add active class based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Apply animations to elements
+        document.querySelectorAll('.research-card, .timeline-content, .skill-category, .award-card, .publication-card').forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
